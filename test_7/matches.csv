@@ -1,0 +1,8 @@
+Round,Winner,Player 1 name,Player 1 sign,Player 2 name,Player 2 sign
+0,Nancy Pederson,Nancy Pederson,LIZARD,William Brill,SPOCK
+0,Ruth Williams,Ruth Williams,PAPER,Margaret Scott,ROCK
+0,Garland Reed,Garland Reed,LIZARD,Brent Heath,PAPER
+0,Charles Smith,Charles Smith,PAPER,Danielle Phillips,SPOCK
+1,Nancy Pederson,Nancy Pederson,LIZARD,Ruth Williams,LIZARD
+1,Charles Smith,Garland Reed,PAPER,Charles Smith,SCISSORS
+2,Charles Smith,Nancy Pederson,ROCK,Charles Smith,ROCK

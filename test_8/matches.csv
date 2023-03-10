@@ -1,0 +1,16 @@
+Round,Winner,Player 1 name,Player 1 sign,Player 2 name,Player 2 sign
+0,James Harris,Wonda Nunez,SPOCK,James Harris,LIZARD
+0,Rachel Blocker,John Machak,SCISSORS,Rachel Blocker,SPOCK
+0,Maria Carranza,Madie Kirby,SCISSORS,Maria Carranza,SPOCK
+0,Allison Thompson,Sarah Waters,SPOCK,Allison Thompson,SPOCK
+0,Iva Jeanbaptiste,Colleen Cummings,PAPER,Iva Jeanbaptiste,LIZARD
+0,Calvin Gallant,Jana Thomas,PAPER,Calvin Gallant,SCISSORS
+0,Georgina Tran,Rodney Hunter,SCISSORS,Georgina Tran,SPOCK
+0,Pearline Edwards,Pearline Edwards,PAPER,Steven Mathis,SPOCK
+1,Rachel Blocker,James Harris,ROCK,Rachel Blocker,SPOCK
+1,Maria Carranza,Maria Carranza,ROCK,Allison Thompson,SCISSORS
+1,Iva Jeanbaptiste,Iva Jeanbaptiste,SCISSORS,Calvin Gallant,LIZARD
+1,Georgina Tran,Georgina Tran,LIZARD,Pearline Edwards,PAPER
+2,Maria Carranza,Rachel Blocker,SCISSORS,Maria Carranza,SPOCK
+2,Iva Jeanbaptiste,Iva Jeanbaptiste,ROCK,Georgina Tran,SCISSORS
+3,Iva Jeanbaptiste,Maria Carranza,SPOCK,Iva Jeanbaptiste,SPOCK
