@@ -3,16 +3,16 @@
 ## Introduction
 Dans un épisode de la série Big Bang Theory, Sheldon parle du jeu : Pierre feuille ciseaux lézard Spock. Qui est une version améliorée du jeu : Pierre feuille ciseaux. Les règles sont les suivantes :
 
-- Les ciseaux coupent la feuille
-- La feuille couvre la pierre
-- La pierre écrase le lézard
-- Le lézard empoisonne Spock
-- Spock casse les ciseaux
-- Les ciseaux décapitent le lézard
-- Le lézard mange la feuille
-- La feuille réfute Spock
-- Spock vaporise la pierre
-- La pierre écrase les ciseaux
+- Les ciseaux (0) coupent la feuille (1)
+- La feuille (1) couvre la pierre (2)
+- La pierre (2) écrase le lézard (3)
+- Le lézard (3) empoisonne Spock (4)
+- Spock (4) casse les ciseaux (0)
+- Les ciseaux (0) décapitent le lézard (3)
+- Le lézard (3) mange la feuille (1)
+- La feuille (1) réfute Spock (4)
+- Spock (4) vaporise la pierre (2)
+- La pierre (2) écrase les ciseaux (0)
 
 Pour les besoins de notre projet, nous considérons aussi la règle suivante :
 
