@@ -118,5 +118,8 @@ class Tournament:
         print(f"TOURNAMENT WINNER : {self.players_map[list(self.moves.keys())[0]]}")
 
 
+def main():
+    Tournament().play()
 
-Tournament().play()
+if __name__ == '__main__':
+    main()

@@ -4,7 +4,6 @@ MATCHES_FILE = 'matches.csv'
 
 # Sheldon Game
 
-
 def test_file(test_number = 1, file = None):
     return f"./test_{test_number}/{file}"
 
@@ -121,6 +120,10 @@ class Tournament:
         self.results.close()
         print(f"TOURNAMENT WINNER : {self.players_map[list(self.moves.keys())[0]]}")
 
-for i in range(1, 14 + 1):
-    Tournament(i).play()
+def main():
+    for i in range(1, 14 + 1):
+        Tournament(i).play()
+
+if __name__ == '__main__':
+    main()
 
