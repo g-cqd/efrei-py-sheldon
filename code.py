@@ -45,11 +45,12 @@ class Tournament:
 
         for line in info:
             line = line.strip().split(',')
-            player_id = self.players_map[line[0]]
-            if player_id in self.moves:
-                self.moves[player_id].append(self.moves_map[line[2]] )
-            else:
-                self.moves[player_id] = [self.moves_map[line[2]]]
+            if len(line) > 1:
+                player_id = self.players_map[line[0]]
+                if player_id in self.moves:
+                    self.moves[player_id].append(self.moves_map[line[2]] )
+                else:
+                    self.moves[player_id] = [self.moves_map[line[2]]]
 
         info.close()
     
@@ -58,10 +59,11 @@ class Tournament:
         rounds.readline()
         for line in rounds:
             line = line.strip().split(',')
-            player_1 = self.add_player(line[0])
-            player_2 = self.add_player(line[1])
-            self.matches.append((player_1,player_2))
-            self.players.extend([player_1,player_2])
+            if len(line) > 1:
+                player_1 = self.add_player(line[0])
+                player_2 = self.add_player(line[1])
+                self.matches.append((player_1,player_2))
+                self.players.extend([player_1,player_2])
         rounds.close()
 
     def battle(self, player_1: 'int', player_2: 'int',round) -> 'int':
