@@ -92,20 +92,20 @@ __Note__: Le fichier contenant le code exécutable sur la plateforme Datascienti
 
 Il y a 12 modes d'exécution du programme:
 
-- `test__0` : `Async Tournaments       + Multithread Battles + Async Write`
-- `test__1` : `Async Tournaments       + Multithread Battles + Sync Write`
-- `test__2` : `Multithread Tournaments + Multithread Battles + Async Write`
-- `test__3` : `Multithread Tournaments + Multithread Battles + Sync Write`
-- `test__4` : `Multithread Tournaments + Sequential Battles  + Async Write`
-- `test__5` : `Multithread Tournaments + Sequential Battles  + Sync Write`
-- `test__6` : `Async Tournaments       + Sequential Battles  + Async Write`
-- `test__7` : `Async Tournaments       + Sequential Battles  + Sync Write`
-- `test__8` : `Sequential Tournaments  + Multithread Battles + Async Write`
-- `test__9` : `Sequential Tournaments  + Multithread Battles + Sync Write`
-- `test_10` : `Sequential Tournaments  + Sequential Battles  + Async Write`
-- `test_11` : `Sequential Tournaments  + Sequential Battles  + Sync Write`
+- `mode__0` : `Async Tournaments       + Multithread Battles + Async Write`
+- `mode__1` : `Async Tournaments       + Multithread Battles + Sync Write`
+- `mode__2` : `Multithread Tournaments + Multithread Battles + Async Write`
+- `mode__3` : `Multithread Tournaments + Multithread Battles + Sync Write`
+- `mode__4` : `Multithread Tournaments + Sequential Battles  + Async Write`
+- `mode__5` : `Multithread Tournaments + Sequential Battles  + Sync Write`
+- `mode__6` : `Async Tournaments       + Sequential Battles  + Async Write`
+- `mode__7` : `Async Tournaments       + Sequential Battles  + Sync Write`
+- `mode__8` : `Sequential Tournaments  + Multithread Battles + Async Write`
+- `mode__9` : `Sequential Tournaments  + Multithread Battles + Sync Write`
+- `mode_10` : `Sequential Tournaments  + Sequential Battles  + Async Write`
+- `mode_11` : `Sequential Tournaments  + Sequential Battles  + Sync Write`
 
 Pour lancer le programme dans un mode d'exécution donné, utilisez la commande suivante:
 ```bash
-$ python3 ./code_full.py <test number>
+$ python3 ./code_full.py <mode number>
 ```
