@@ -6,6 +6,8 @@ MATCHES_FILE = './matches.csv'
 
 class Tournament:
 
+    MATCHES_HEADER = 'Round,Winner,Player 1 name,Player 1 sign,Player 2 name,Player 2 sign'
+
     # static method
     @staticmethod
     def compare(left: 'int', right: 'int') -> 'int':
@@ -17,9 +19,7 @@ class Tournament:
         self.players_map = {}
         self.players =[]
         self.moves = {}
-        self.matches = []
-        self.results = open(MATCHES_FILE, 'w')
-        self.results.write('Round,Winner,Player 1 name,Player 1 sign,Player 2 name,Player 2 sign\n')
+        self.results = []
         self.moves_map = {
             'SCISSORS': 0,
             'PAPER': 1,
@@ -39,40 +39,44 @@ class Tournament:
         self.players_map[size] = player
         return size
 
-    def read_info_file(self, file: 'str'):
-        info = open(file, 'r')
-        info.readline()
-
-        for line in info:
-            line = line.strip().split(',')
-            if len(line) > 1:
-                player_id = self.players_map[line[0]]
-                if player_id in self.moves:
-                    self.moves[player_id].append(self.moves_map[line[2]] )
-                else:
-                    self.moves[player_id] = [self.moves_map[line[2]]]
-
-        info.close()
-    
-    def read_rounds(self, file: 'str'):
-        rounds = open(file, 'r')
+    def read_rounds(self) -> 'None':
+        rounds = open(ROUND_0_FILE, 'r')
         rounds.readline()
         for line in rounds:
             line = line.strip().split(',')
             if len(line) > 1:
-                player_1 = self.add_player(line[0])
-                player_2 = self.add_player(line[1])
-                self.matches.append((player_1,player_2))
+                player_1: 'int' = self.add_player(line[0])
+                player_2: 'int' = self.add_player(line[1])
                 self.players.extend([player_1,player_2])
         rounds.close()
 
-    def battle(self, player_1: 'int', player_2: 'int',round) -> 'int':
-        player_1_name = self.players_map.pop(player_1)
-        player_2_name = self.players_map.pop(player_2)
-        player_1_move = self.moves[player_1].pop(0)
-        player_2_move = self.moves[player_2].pop(0)
-        winner = None
-        winner_name = None
+    def read_info_file(self) -> 'None':
+        info = open(PLAYER_INFO_FILE, 'r')
+        info.readline()
+        for line in info:
+            line = line.strip().split(',')
+            if len(line) > 1:
+                player_id: 'int' = self.players_map[line[0]]
+                if player_id in self.moves:
+                    self.moves[player_id].append(self.moves_map[line[2]] )
+                else:
+                    self.moves[player_id] = [self.moves_map[line[2]]]
+        info.close()
+
+    def write(self):
+        result_file = open(MATCHES_FILE, 'w')
+        result_file.write(Tournament.MATCHES_HEADER)
+        for result in self.results:
+            result_file.write(f'\n{result[0]},{result[1]},{result[2]},{result[3]},{result[4]},{result[5]}')
+        result_file.close()
+
+    def battle(self, player_1: 'int', player_2: 'int', round: 'int') -> 'None':
+        player_1_name: 'str' = self.players_map.pop(player_1)
+        player_2_name: 'str' = self.players_map.pop(player_2)
+        player_1_move: 'int' = self.moves[player_1].pop(0)
+        player_2_move: 'int' = self.moves[player_2].pop(0)
+        winner: 'int|None' = None
+        winner_name: 'str|None' = None
         match Tournament.compare(player_1_move, player_2_move):
             case 1:
                 winner = player_1
@@ -101,21 +105,21 @@ class Tournament:
                     winner_name = player_2_name
         self.players_map[winner] = winner_name
         self.players_map[winner_name] = winner
-        self.results.write(f'{round},{winner_name},{player_1_name},{self.moves_map[player_1_move]},{player_2_name},{self.moves_map[player_2_move]}\n')
-    
+        self.results.append((round,winner_name,player_1_name,self.moves_map[player_1_move],player_2_name,self.moves_map[player_2_move]))
+
     def play(self):
-        self.read_rounds(ROUND_0_FILE)
-        self.read_info_file(PLAYER_INFO_FILE)
-        round_count = 0
+        self.read_rounds()
+        self.read_info_file()
+        round_count: 'int' = 0
         while len(self.moves) > 1:
-            keys = self.players.copy()
-            for cursor in range(0,len(keys), 2):
-                player_1 = keys[cursor]
-                player_2 = keys[cursor + 1]
-                self.battle(player_1,player_2,round_count)
+            keys: 'list[int]' = self.players.copy()
+            size: 'int' = len(keys)
+            for cursor in range(0,size,2):
+                self.battle(keys[cursor],keys[cursor + 1],round_count)
             round_count += 1
-        self.results.close()
-        print(f"TOURNAMENT WINNER : {self.players_map[list(self.moves.keys())[0]]}")
+        self.write()
+        winner: 'str' = self.players_map[self.players[0]]
+        print(f"TOURNAMENT WINNER : {winner}")
 
 
 def main():
